@@ -62,6 +62,7 @@ sudo apt-get install vim installs a package/software to use on Linux
 **Which command is used for removing software. Provide an example.**
 sudo apt-get remove vim deletes a package/software on Linux
 **Which command is used for searching for software. Provide an example** find /path -type f -iname vim finds the directory that vim is installed on
+### Definitions
 **Package -**
 a compressed software archive file containing all the files included with a software application that provides any functionality.
 **Library -**
