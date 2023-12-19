@@ -1,3 +1,4 @@
+![Profile Picture](BeautifulMan.jpg)
 # Tambi Samkough
 ---
 ## Student at PCCC

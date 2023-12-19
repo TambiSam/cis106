@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Deliverable 3.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<p><img src="BeautifulMan.jpg" alt="Profile Picture"></p>
+<h1 id="tambi-samkough">Tambi Samkough</h1>
+<hr>
+<h2 id="student-at-pccc">Student at PCCC</h2>
+<hr>
+<p>Tambi Samkough has a wide variety of interests. Clear mind, Motivation tied, Leadership Organized. Tambi strives to become the best of the best and will not back down from a challenge.</p>
+<h2 id="contact-me"><a href="mailto:tsamkough@gmail.com">Contact Me</a></h2>
+<h2 id="experience">Experience</h2>
+<hr>
+<h3 id="united-cleaning-corp">United Cleaning Corp</h3>
+<h4 id="technician--2020-present">Technician | 2020-Present</h4>
+<ul>
+<li>Wash filters by cleaning off the grease for kitchens</li>
+<li>Polish hoods to make them nice and shiny</li>
+<li>Employee of the Month</li>
+<li>Polish Certified</li>
+</ul>
+<h3 id="double-ai">Double Ai</h3>
+<h4 id="busser--2021-2023">Busser | 2021-2023</h4>
+<ul>
+<li>Clear Dishes off tables</li>
+<li>Never hesitated in a fast paced environment</li>
+<li>Ensured Customer Service by providing a nice and helpful experience</li>
+</ul>
+<hr>
+<h2 id="education">Education</h2>
+<hr>
+<h3 id="pccc">PCCC</h3>
+<h4 id="associate-of-cis--2022-present">Associate of CIS | 2022-Present</h4>
+<ul>
+<li>Enrolled in Network Administration, CIS</li>
+</ul>
+<h3 id="wayne-valley-highschool">Wayne Valley Highschool</h3>
+<h4 id="student--2018-2022">Student | 2018-2022</h4>
+<ul>
+<li>Wayne Valley Wrestling Captain</li>
+<li>Most Sociable</li>
+</ul>
+<h3 id="amin-samkough-sunday-school">Amin Samkough Sunday School</h3>
+<h4 id="scholar--2009-2014">Scholar | 2009-2014</h4>
+<hr>
+<h2 id="skills">Skills</h2>
+<hr>
+<h3 id="esport-player">Esport Player</h3>
+<ul>
+<li>I have several years of experience in playing games and have won multiple tournaments in a numerous amount of games</li>
+</ul>
+<h3 id="leader">Leader</h3>
+<ul>
+<li>I've lead many group projects and lead my team to a state title</li>
+</ul>
+<h3 id="bilingual">Bilingual</h3>
+<ul>
+<li>I am able to speak multiple languages such as English, Arabic, Spanish, and Punchas</li>
+</ul>
+<hr>
+<h2 id="recognition">Recognition</h2>
+<hr>
+<h3 id="wrestling-state-champion">Wrestling State Champion</h3>
+<h4 id="wayne-valley-wrestling--2018-2022">Wayne Valley Wrestling | 2018-2022</h4>
+<ul>
+<li>I have won the title of a State Champ during my years at Wayne Valley and lead my team to have a winning records throughout my 4 years</li>
+</ul>
+<h3 id="most-likely-to-succeed">Most Likely to Succeed</h3>
+<h4 id="samkoccino-parliament-2022-2023">Samkoccino Parliament 2022-2023</h4>
+<ul>
+<li>I lead my parliament to Egypt as we excavated the original Samkoccino archaeological Site</li>
+</ul>
+<hr>
+<h2 id="associations">Associations</h2>
+<hr>
+<h3 id="samkoccinos">Samkoccinos</h3>
+<h4 id="founding-four--2004-present">Founding Four | 2004-Present</h4>
+<ul>
+<li>The Founding Four which includes me have created a group that is vengeful against the wrong do-ers of the world</li>
+</ul>
+<h3 id="we-act-club">We Act Club</h3>
+<h4 id="volunteer--2020-2022">Volunteer | 2020-2022</h4>
+<ul>
+<li>Organized fund raising food drives, Cleaned up the environment, Brought food to the homeless</li>
+</ul>
+<hr>
+<h2 id="additional-links">Additional Links</h2>
+<hr>
+<ul>
+<li>www.discord.com/takbi</li>
+<li>www.instagram.com/tambiano</li>
+</ul>
+<hr>
+
+</body>
+</html>
