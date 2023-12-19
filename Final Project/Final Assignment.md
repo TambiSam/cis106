@@ -103,7 +103,7 @@ The > symbol is used to redirect output by taking the output from the command on
 The >> shell command is used to redirect the standard output of the command on the left and append (add) it to the end of the file on the right.
 "Hello World!" >> greetings.txt
 ## How to use wildcards
-[q2](wildcards.png)
+![q2](wildcards.png)
 ## How to use brace expansion
 Brace expansions use commands to make folders shortcuts. To use them
 rm -r wallpapers/
